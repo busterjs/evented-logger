@@ -1,0 +1,26 @@
+{
+    "name": "buster-evented-logger",
+    "version": "0.1.0",
+    "description": "An evented console logger"
+    "homepage": "http://busterjs.org/buster-evented-logger",
+    "author": {
+        "name": "Christian Johansen",
+        "email": "christian@cjohansen.no",
+        "url": "http://cjohansen.no"
+    },
+    "contributors": [{
+        "name": "August Lilleaas",
+        "email": "august.lilleaas@gmail.com",
+        "url": "http://augustl.com"
+    }],
+    "main": "./lib/buster-evented-logger",
+    "repository": {
+        "type": "git",
+        "url": "http://git.gitorious.org/buster-js/buster-evented-logger.git"
+    },
+    "dependencies": {
+        "buster-core": "~0.1",
+        "buster-event-emitter": "~0.1",
+        "buster-format": "~0.1"
+    }
+}

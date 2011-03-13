@@ -1,0 +1,11 @@
+buster-evented-logger is an evented console logger. Rather than writing to an
+output stream, it simply emits events. It supports log levels and formatting of
+arguments, suitable for JSON serialization. By default the logger uses
+buster-format for ascii formatting of objects passed to it.
+
+Developers: Getting started
+---------------------------
+
+$ git submodule init
+$ git submodule update
+$ ./run-tests
