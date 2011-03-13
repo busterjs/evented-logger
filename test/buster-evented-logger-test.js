@@ -131,5 +131,38 @@ testCase("EventedLoggerTest", {
 
         buster.assert.equals(formatter.callCount, 4);
         buster.assert.equals(listener.args[0][0].message, "# # # #");
+    },
+
+    "should create logger with custom default level": function () {
+        var listener = sinon.spy();
+        var logger = buster.eventedLogger.create({ level: "error" });
+
+        logger.on("log", listener);
+        logger.warn("Hey");
+
+        buster.assert(!listener.called);
+    },
+
+    "should create logger with custom levels": function () {
+        var listener = sinon.spy();
+        var logger = buster.eventedLogger.create({
+            levels: ["err", "warn", "info", "debug", "scream"]
+        });
+
+        logger.on("log", listener);
+
+        logger.scream("Hey");
+        logger.debug("Hey");
+        logger.info("Hey");
+        logger.warn("Hey");
+        logger.err("Hey");
+
+        buster.assert.isUndefined(listener.log);
+        buster.assert.equals(listener.callCount, 5);
+        buster.assert.equals(listener.args[0][0].level, "scream");
+        buster.assert.equals(listener.args[1][0].level, "debug");
+        buster.assert.equals(listener.args[2][0].level, "info");
+        buster.assert.equals(listener.args[3][0].level, "warn");
+        buster.assert.equals(listener.args[4][0].level, "err");
     }
 });
