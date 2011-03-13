@@ -119,5 +119,17 @@ testCase("EventedLoggerTest", {
 
         buster.assert.equals(this.logger.format.callCount, 4);
         buster.assert.equals(this.listener.args[0][0].message, "# # # #");
+    },
+
+    "should provide formatter as create option": function () {
+        var listener = sinon.spy();
+        var formatter = sinon.stub().returns("#");
+
+        var logger = buster.eventedLogger.create({ formatter: formatter });
+        logger.on("log", listener);
+        logger.log("Hey", {}, [], 23);
+
+        buster.assert.equals(formatter.callCount, 4);
+        buster.assert.equals(listener.args[0][0].message, "# # # #");
     }
 });
