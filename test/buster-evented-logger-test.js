@@ -110,5 +110,14 @@ testCase("EventedLoggerTest", {
         this.logger.error("Hey");
 
         buster.assert.equals(this.listener.callCount, 4);
+    },
+
+    "should format arguments with eventedLogger.format": function () {
+        sinon.stub(this.logger, "format").returns("#");
+        this.logger.on("log", this.listener);
+        this.logger.log("Hey", {}, [], 23);
+
+        buster.assert.equals(this.logger.format.callCount, 4);
+        buster.assert.equals(this.listener.args[0][0].message, "# # # #");
     }
 });
