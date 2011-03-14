@@ -1,4 +1,4 @@
-Buster Evented logger 0.1.0 documentation
+Buster Evented logger 0.1.1 documentation
 =========================================
 :Author: Christian Johansen
 :Email: christian@cjohansen.no

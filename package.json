@@ -1,7 +1,7 @@
 {
     "name": "buster-evented-logger",
-    "version": "0.1.0",
-    "description": "An evented console logger"
+    "version": "0.1.1",
+    "description": "An evented console logger",
     "homepage": "http://busterjs.org/buster-evented-logger",
     "author": {
         "name": "Christian Johansen",
