@@ -19,7 +19,7 @@
         "url": "http://git.gitorious.org/buster-js/buster-evented-logger.git"
     },
     "dependencies": {
-        "buster-core": "~0.1",
-        "buster-event-emitter": "~0.1"
+        "buster-core": "~0.2",
+        "buster-event-emitter": "~0.2"
     }
 }
