@@ -1,14 +1,14 @@
 if (typeof require != "undefined") {
-    var testCase = require("buster-util").testCase;
     var sinon = require("sinon");
 
     var buster = {
         assert: require("buster-assert"),
-        eventedLogger: require("../lib/buster-evented-logger")
+        eventedLogger: require("../lib/buster-evented-logger"),
+        util: require("buster-util")
     };
 }
 
-testCase("EventedLoggerTest", {
+buster.util.testCase("EventedLoggerTest", {
     setUp: function () {
         this.logger = buster.eventedLogger.create();
         this.listener = sinon.spy();
