@@ -29,7 +29,9 @@ buster.util.testCase("EventedLoggerTest", {
         this.logger.log("Hey", {}, [2, 3], "There");
 
         buster.assert(this.listener.calledOnce);
-        buster.assert.equals(this.listener.args[0][0].message, "Hey {} [2,3] There");
+
+        buster.assert.match(this.listener.args[0][0].message,
+                            /^Hey (\{\})|(\[object Object\]) \[?2,3\]? There$/);
     },
 
     "should emit log event when warning": function () {
