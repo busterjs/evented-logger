@@ -2,11 +2,14 @@ if (typeof require != "undefined") {
     var sinon = require("sinon");
 
     var buster = {
-        assert: require("buster-assert"),
+        assertions: require("buster-assertions"),
         eventedLogger: require("../lib/buster-evented-logger"),
         util: require("buster-util")
     };
 }
+
+var assert = buster.assertions.assert;
+var refute = buster.assertions.refute;
 
 buster.util.testCase("EventedLoggerTest", {
     setUp: function () {
@@ -18,8 +21,8 @@ buster.util.testCase("EventedLoggerTest", {
         this.logger.on("log", this.listener);
         this.logger.log("Hey");
 
-        buster.assert(this.listener.calledOnce);
-        buster.assert(this.listener.calledWith({
+        assert(this.listener.calledOnce);
+        assert(this.listener.calledWith({
             level: "log", message: "Hey"
         }));
     },
@@ -28,9 +31,9 @@ buster.util.testCase("EventedLoggerTest", {
         this.logger.on("log", this.listener);
         this.logger.log("Hey", {}, [2, 3], "There");
 
-        buster.assert(this.listener.calledOnce);
+        assert(this.listener.calledOnce);
 
-        buster.assert.match(this.listener.args[0][0].message,
+        assert.match(this.listener.args[0][0].message,
                             /^Hey (\{\})|(\[object Object\]) \[?2,3\]? There$/);
     },
 
@@ -38,8 +41,8 @@ buster.util.testCase("EventedLoggerTest", {
         this.logger.on("log", this.listener);
         this.logger.warn("Hey");
 
-        buster.assert(this.listener.calledOnce);
-        buster.assert(this.listener.calledWith({
+        assert(this.listener.calledOnce);
+        assert(this.listener.calledWith({
             level: "warn", message: "Hey"
         }));
     },
@@ -48,8 +51,8 @@ buster.util.testCase("EventedLoggerTest", {
         this.logger.on("log", this.listener);
         this.logger.error("Hey");
 
-        buster.assert(this.listener.calledOnce);
-        buster.assert(this.listener.calledWith({
+        assert(this.listener.calledOnce);
+        assert(this.listener.calledWith({
             level: "error", message: "Hey"
         }));
     },
@@ -58,8 +61,8 @@ buster.util.testCase("EventedLoggerTest", {
         this.logger.on("log", this.listener);
         this.logger.debug("Hey");
 
-        buster.assert(this.listener.calledOnce);
-        buster.assert(this.listener.calledWith({
+        assert(this.listener.calledOnce);
+        assert(this.listener.calledWith({
             level: "debug", message: "Hey"
         }));
     },
@@ -72,8 +75,8 @@ buster.util.testCase("EventedLoggerTest", {
         this.logger.warn("Hey");
         this.logger.error("Hey");
 
-        buster.assert(this.listener.calledOnce);
-        buster.assert.equals(this.listener.args[0][0].level, "error");
+        assert(this.listener.calledOnce);
+        assert.equals(this.listener.args[0][0].level, "error");
     },
 
     "should emit errors and warnings when level is warn": function () {
@@ -84,9 +87,9 @@ buster.util.testCase("EventedLoggerTest", {
         this.logger.warn("Hey");
         this.logger.error("Hey");
 
-        buster.assert(this.listener.calledTwice);
-        buster.assert.equals(this.listener.args[0][0].level, "warn");
-        buster.assert.equals(this.listener.args[1][0].level, "error");
+        assert(this.listener.calledTwice);
+        assert.equals(this.listener.args[0][0].level, "warn");
+        assert.equals(this.listener.args[1][0].level, "error");
     },
 
     "should emit log, errors and warnings when level is log": function () {
@@ -97,10 +100,10 @@ buster.util.testCase("EventedLoggerTest", {
         this.logger.warn("Hey");
         this.logger.error("Hey");
 
-        buster.assert(this.listener.calledThrice);
-        buster.assert.equals(this.listener.args[0][0].level, "log");
-        buster.assert.equals(this.listener.args[1][0].level, "warn");
-        buster.assert.equals(this.listener.args[2][0].level, "error");
+        assert(this.listener.calledThrice);
+        assert.equals(this.listener.args[0][0].level, "log");
+        assert.equals(this.listener.args[1][0].level, "warn");
+        assert.equals(this.listener.args[2][0].level, "error");
     },
 
     "should emit everything when level is debug": function () {
@@ -111,7 +114,7 @@ buster.util.testCase("EventedLoggerTest", {
         this.logger.warn("Hey");
         this.logger.error("Hey");
 
-        buster.assert.equals(this.listener.callCount, 4);
+        assert.equals(this.listener.callCount, 4);
     },
 
     "should format arguments with eventedLogger.format": function () {
@@ -119,8 +122,8 @@ buster.util.testCase("EventedLoggerTest", {
         this.logger.on("log", this.listener);
         this.logger.log("Hey", {}, [], 23);
 
-        buster.assert.equals(this.logger.format.callCount, 4);
-        buster.assert.equals(this.listener.args[0][0].message, "# # # #");
+        assert.equals(this.logger.format.callCount, 4);
+        assert.equals(this.listener.args[0][0].message, "# # # #");
     },
 
     "should provide formatter as create option": function () {
@@ -131,8 +134,8 @@ buster.util.testCase("EventedLoggerTest", {
         logger.on("log", listener);
         logger.log("Hey", {}, [], 23);
 
-        buster.assert.equals(formatter.callCount, 4);
-        buster.assert.equals(listener.args[0][0].message, "# # # #");
+        assert.equals(formatter.callCount, 4);
+        assert.equals(listener.args[0][0].message, "# # # #");
     },
 
     "should create logger with custom default level": function () {
@@ -142,7 +145,7 @@ buster.util.testCase("EventedLoggerTest", {
         logger.on("log", listener);
         logger.warn("Hey");
 
-        buster.assert(!listener.called);
+        refute(listener.called);
     },
 
     "should create logger with custom levels": function () {
@@ -159,12 +162,12 @@ buster.util.testCase("EventedLoggerTest", {
         logger.warn("Hey");
         logger.err("Hey");
 
-        buster.assert.isUndefined(listener.log);
-        buster.assert.equals(listener.callCount, 5);
-        buster.assert.equals(listener.args[0][0].level, "scream");
-        buster.assert.equals(listener.args[1][0].level, "debug");
-        buster.assert.equals(listener.args[2][0].level, "info");
-        buster.assert.equals(listener.args[3][0].level, "warn");
-        buster.assert.equals(listener.args[4][0].level, "err");
+        assert.isUndefined(listener.log);
+        assert.equals(listener.callCount, 5);
+        assert.equals(listener.args[0][0].level, "scream");
+        assert.equals(listener.args[1][0].level, "debug");
+        assert.equals(listener.args[2][0].level, "info");
+        assert.equals(listener.args[3][0].level, "warn");
+        assert.equals(listener.args[4][0].level, "err");
     }
 });
