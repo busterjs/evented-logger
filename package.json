@@ -1,8 +1,8 @@
 {
     "name": "buster-evented-logger",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "An evented console logger",
-    "homepage": "http://busterjs.org/buster-evented-logger",
+    "homepage": "http://busterjs.org/docs/buster-evented-logger",
     "author": {
         "name": "Christian Johansen",
         "email": "christian@cjohansen.no",
@@ -16,9 +16,15 @@
     "main": "./lib/buster-evented-logger",
     "repository": {
         "type": "git",
-        "url": "http://git.gitorious.org/buster-js/buster-evented-logger.git"
+        "url": "git://gitorious.org/buster/buster-evented-logger.git"
     },
     "dependencies": {
-        "buster-core": "*"
+        "buster-core": "~>0.3"
+    },
+    "devDependencies": {
+        "sinon": "~>1.1",
+        "buster-assertions": "~>0.6",
+        "buster-format": "~>0.4",
+        "buster-util": "~>0.3"
     }
 }
