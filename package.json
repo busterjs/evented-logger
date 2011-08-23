@@ -1,6 +1,6 @@
 {
     "name": "buster-evented-logger",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "An evented console logger",
     "homepage": "http://busterjs.org/docs/buster-evented-logger",
     "author": {
@@ -19,12 +19,12 @@
         "url": "git://gitorious.org/buster/buster-evented-logger.git"
     },
     "dependencies": {
-        "buster-core": "~>0.3"
+        "buster-core": "~0.3"
     },
     "devDependencies": {
-        "sinon": "~>1.1",
-        "buster-assertions": "~>0.6",
-        "buster-format": "~>0.4",
-        "buster-util": "~>0.3"
+        "sinon": "~1.1",
+        "buster-assertions": "~0.6",
+        "buster-format": "~0.4",
+        "buster-util": "~0.3"
     }
 }
