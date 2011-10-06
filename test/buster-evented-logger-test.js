@@ -162,7 +162,7 @@ buster.util.testCase("EventedLoggerTest", {
         logger.warn("Hey");
         logger.err("Hey");
 
-        assert.isUndefined(listener.log);
+        refute.defined(listener.log);
         assert.equals(listener.callCount, 5);
         assert.equals(listener.args[0][0].level, "scream");
         assert.equals(listener.args[1][0].level, "debug");
