@@ -169,5 +169,25 @@ buster.util.testCase("EventedLoggerTest", {
         assert.equals(listener.args[2][0].level, "info");
         assert.equals(listener.args[3][0].level, "warn");
         assert.equals(listener.args[4][0].level, "err");
+    },
+
+    "should log return value from function": function () {
+        this.logger.on("log", this.listener);
+        this.logger.log(function () {
+            return "Hey";
+        });
+
+        assert(this.listener.calledOnce);
+        assert(this.listener.calledWith({
+            level: "log", message: "Hey"
+        }));
+    },
+
+    "should not call logged function if logging to silenced level": function () {
+        var logged = sinon.spy();
+        this.logger.level = "error";
+        this.logger.debug(logged);
+
+        refute(logged.called);
     }
 });
