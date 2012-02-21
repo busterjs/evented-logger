@@ -1,6 +1,6 @@
 {
     "name": "buster-evented-logger",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "description": "An evented console logger",
     "homepage": "http://busterjs.org/docs/buster-evented-logger",
     "author": {

@@ -34,7 +34,7 @@ buster.util.testCase("EventedLoggerTest", {
         assert(this.listener.calledOnce);
 
         assert.match(this.listener.args[0][0].message,
-                            /^Hey (\{\})|(\[object Object\]) \[?2,3\]? There$/);
+                     /^Hey (\{\})|(\[object Object\]) \[?2,3\]? There$/);
     },
 
     "should emit log event when warning": function () {
@@ -189,5 +189,16 @@ buster.util.testCase("EventedLoggerTest", {
         this.logger.debug(logged);
 
         refute(logged.called);
+    },
+
+    "should log function if instructed to": function () {
+        var logger = buster.eventedLogger.create({ logFunctions: true });
+        logger.on("log", this.listener);
+        logger.log(function () { return "Hey"; });
+
+        assert(this.listener.calledOnce);
+        assert(this.listener.calledWith({
+            level: "log", message: "function () { return \"Hey\"; }"
+        }));
     }
 });
