@@ -1,5 +1,3 @@
 .gitignore
-.gitmodules
 .npmignore
 node_modules
-vendor
