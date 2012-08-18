@@ -190,6 +190,18 @@
             assert.equals(envelope.level, "log");
             assert.match(envelope.message, "function () {");
             assert.match(envelope.message, "return \"Hey\";");
+        },
+
+        "does not leak events between instances": function () {
+            var listener = this.spy();
+            var logger = eventedLogger.create();
+            var logger2 = eventedLogger.create();
+            logger.on("log", listener);
+            logger2.on("log", listener);
+
+            logger.debug("Hmm");
+
+            assert.calledOnce(listener);
         }
     });
 }(this.eventedLogger, this.buster));
