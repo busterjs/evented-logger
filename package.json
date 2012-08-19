@@ -3,7 +3,7 @@
     "version": "0.4.4",
     "description": "An evented console logger",
     "homepage": "http://busterjs.org/docs/evented-logger",
-    "author": "August Lilleaas and Christian Johansen",
+    "author": "Christian Johansen",
     "contributors": [{
         "name": "Christian Johansen",
         "email": "christian@cjohansen.no",
@@ -12,6 +12,9 @@
         "name": "August Lilleaas",
         "email": "august.lilleaas@gmail.com",
         "url": "http://augustl.com"
+    }, {
+        "name": "Stein Magnus Jodal",
+        "email": "stein.magnus@jodal.no"
     }],
     "main": "./lib/evented-logger",
     "repository": {
