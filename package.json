@@ -1,6 +1,6 @@
 {
     "name": "evented-logger",
-    "version": "0.4.4",
+    "version": "0.5.0",
     "description": "An evented console logger",
     "homepage": "http://busterjs.org/docs/evented-logger",
     "author": "Christian Johansen",
@@ -25,7 +25,7 @@
         "test": "./node_modules/buster/bin/buster-test --node"
     },
     "dependencies": {
-        "lodash": "~0.4",
+        "lodash": "~1.0",
         "bane": "~0.1"
     },
     "devDependencies": {
