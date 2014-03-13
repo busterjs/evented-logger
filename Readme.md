@@ -238,10 +238,10 @@ custom levels.
 
 An object representing a logged message. Contains two properties:
 
-`level`:
+* `level`:
     The log level as a lower case string, e.g. `"debug"`
 
-`message`:
+* `message`:
     A formatted log message, containing all arguments passed to the log
     method joined by a single blank space.
 
@@ -250,15 +250,15 @@ An object representing a logged message. Contains two properties:
 
 Options passed to [`eventedLogger.create`](#eventedloggercreateoptions).
 
-`level`:
+* `level`:
     The default log level, i.e. the minimum required level the logger will
     emit events for. Default value is `"debug"`, i.e. all messages.
 
-`levels`:
+* `levels`:
     An array of levels the logger supports. Default is `["error", "warn",
     "log", "debug"]`. Each string in this array names methods created on
     the logger.
 
-`formatter`:
+* `formatter`:
     The function that should format arguments.
     See [`eventedLogger.format`](#eventedloggerformatobject).
