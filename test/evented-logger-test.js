@@ -4,6 +4,9 @@
         buster = require("buster");
     }
 
+    var assert = buster.assert;    
+    var refute = buster.refute;
+
     buster.testCase("eventedLogger", {
         setUp: function () {
             this.logger = eventedLogger.create();

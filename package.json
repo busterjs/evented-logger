@@ -22,13 +22,13 @@
         "url": "https://github.com/busterjs/evented-logger.git"
     },
     "scripts": {
-        "test": "./node_modules/buster/bin/buster-test --node"
+        "test": "node node_modules/buster/bin/buster-test --node"
     },
     "dependencies": {
         "lodash": "~1.0",
         "bane": "~1.0"
     },
     "devDependencies": {
-        "buster": "0.6.11"
+        "buster": "*"
     }
 }
