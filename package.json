@@ -1,39 +1,43 @@
 {
-    "name": "evented-logger",
-    "version": "1.0.0",
-    "description": "An evented console logger",
-    "homepage": "http://busterjs.org/docs/evented-logger",
-    "author": "Christian Johansen",
-    "contributors": [{
-        "name": "Christian Johansen",
-        "email": "christian@cjohansen.no",
-        "url": "http://cjohansen.no"
-    }, {
-        "name": "August Lilleaas",
-        "email": "august.lilleaas@gmail.com",
-        "url": "http://augustl.com"
-    }, {
-        "name": "Stein Magnus Jodal",
-        "email": "stein.magnus@jodal.no"
-    }],
-    "license": "BSD-3-Clause",
-    "main": "./lib/evented-logger",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/busterjs/evented-logger.git"
+  "name": "evented-logger",
+  "version": "1.0.1",
+  "description": "An evented console logger",
+  "homepage": "http://busterjs.org/docs/evented-logger",
+  "author": "Christian Johansen",
+  "contributors": [
+    {
+      "name": "Christian Johansen",
+      "email": "christian@cjohansen.no",
+      "url": "http://cjohansen.no"
     },
-    "scripts": {
-        "test": "grunt test"
+    {
+      "name": "August Lilleaas",
+      "email": "august.lilleaas@gmail.com",
+      "url": "http://augustl.com"
     },
-    "dependencies": {
-        "lodash": "3.x",
-        "bane": "1.x"
-    },
-    "devDependencies": {
-        "grunt": "0.4.x",
-        "grunt-buster": "0.4.x",
-        "grunt-cli": "0.1.x",
-        "buster": "0.7.x",
-        "phantomjs": "1.9.x"
+    {
+      "name": "Stein Magnus Jodal",
+      "email": "stein.magnus@jodal.no"
     }
+  ],
+  "license": "BSD-3-Clause",
+  "main": "./lib/evented-logger",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/busterjs/evented-logger.git"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "lodash": "3.x",
+    "bane": "1.x"
+  },
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-buster": "0.4.x",
+    "grunt-cli": "0.1.x",
+    "buster": "0.7.x",
+    "phantomjs": "1.9.x"
+  }
 }
