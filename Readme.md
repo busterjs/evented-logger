@@ -152,7 +152,7 @@ logger.format = buster.format.ascii;
 
 ```javascript
 var logger = eventedLogger.create({
-    logger: buster.format.ascii
+    formatter: buster.format.ascii
 });
 ```
 
